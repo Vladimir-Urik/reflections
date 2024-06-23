@@ -112,7 +112,7 @@ import static org.reflections.scanners.Scanners.*;
  * <i>For Javadoc, source code, and more information about Reflections Library, see http://github.com/ronmamo/reflections/</i>
  */
 public class Reflections implements NameHelper {
-    public final static Logger log = LoggerFactory.getLogger(Reflections.class);
+    public static Logger log = LoggerFactory.getLogger(Reflections.class);
 
     protected final transient Configuration configuration;
     protected final Store store;
@@ -624,4 +624,8 @@ public class Reflections implements NameHelper {
     }
 
     ClassLoader[] loaders() { return configuration.getClassLoaders(); }
+
+    public static void disableLogging() {
+        log = null;
+    }
 }
